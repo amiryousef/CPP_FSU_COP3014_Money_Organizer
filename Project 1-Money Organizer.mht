@@ -1,0 +1,124 @@
+From: <Saved by Windows Internet Explorer 7>
+Subject: Project 1-Money Organizer
+Date: Thu, 6 May 2010 13:24:52 -0400
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://ww2.cs.fsu.edu/~porter/cop3014/summer2010/projects/Project%201.htm
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.5579
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Project 1-Money Organizer</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<META content=3D"MSHTML 6.00.6000.17023" name=3DGENERATOR></HEAD>
+<BODY bgColor=3D#ffffff>
+<P align=3Dcenter><FONT face=3DVerdana size=3D5><STRONG>Project 1-Money=20
+Organizer</STRONG></FONT></P>
+<P><FONT face=3DVerdana size=3D2><STRONG>Description: </STRONG>In this =
+project, you=20
+will gain experience gathering input, using basic arithmetic, and =
+printing to=20
+the screen.</FONT></P>
+<P><FONT face=3DVerdana size=3D2><STRONG>Details:</STRONG> Write a =
+program that=20
+prompts the user to enter a monetary amount. Then, print the amount of =
+each=20
+denomination back to the user, favoring higher denominations first. Here =
+are the=20
+denominations, from highest to lowest:</FONT></P>
+<BLOCKQUOTE>
+  <P><FONT face=3DVerdana=20
+  =
+size=3D2>Dollars<BR>Quarters<BR>Dimes<BR>Nickles<BR>Pennies</FONT></P></B=
+LOCKQUOTE>
+<P><FONT face=3DVerdana size=3D2>For example, if the user enters 1.00, =
+four quarters=20
+wouldn't be correct since you have a higher denomination of $1. Place =
+your=20
+program in one source code file named =
+<STRONG>moneyorganizer.cpp</STRONG>. You=20
+can assume the user will enter a valid, non-negative number with two =
+decimal=20
+places. See my sample runs below to compare. Note that the dollar sign =
+($) isn't=20
+part of the user's input, but is instead part of the request=20
+statement.</FONT></P>
+<P><FONT face=3DVerdana size=3D2><STRONG>Programming Tips: </STRONG>You =
+will find=20
+that while your input is a floating-point value, you will want to use an =
+
+integral value in your calculations. So, you need a way to convert the=20
+floating-point value to an integral value. If your floating-point =
+variable is=20
+called <STRONG>input </STRONG>and your integral variable is called=20
+<STRONG>amount</STRONG>, the conversion would be</FONT></P>
+<BLOCKQUOTE>
+  <P><FONT face=3DVerdana color=3D#000000 size=3D2><STRONG>amount =3D=20
+  static_cast&lt;size_t&gt;(ceil(input * =
+100));</STRONG></FONT></P></BLOCKQUOTE>
+<P><FONT face=3DVerdana size=3D2>Multiplying <STRONG>input</STRONG> by =
+100 allows us=20
+to capture the total monetary amount as the total number of cents. The=20
+<STRONG>ceil()</STRONG> function from the header =
+<STRONG>&lt;cmath&gt;</STRONG>=20
+will round up to the next integer. For example, 1.55 would round up to =
+2.00. The=20
+reason we have to do this is because floating-point values aren't always =
+stored=20
+exactly in computers. For instance, if the user types in 1.24, it might =
+actually=20
+be stored as 1.239999... Multiplying this by 100 gives 123.9999... Now, =
+we round=20
+up to get 124.0000... <STRONG>static_cast&lt;size_t&gt;() </STRONG>will =
+then=20
+convert the floating-point value into an integral value. It does this by =
+
+stripping away everything to the right of the decimal place. So, 124.000 =
+becomes=20
+124. <STRONG>size_t</STRONG> represents an unsigned integral type and is =
+defined=20
+in many headers. <STRONG>&lt;cstdlib&gt;</STRONG> is one of them. Note =
+that=20
+there is a limit to where this rounding up technique is accurate. For =
+example,=20
+if the user types 39254822.39, and you are using a 32-bit floating-point =
+
+variable, you will get a very inaccurate result. So, you can assume the =
+max=20
+input will not exceed $1,000.00. Also, use type <STRONG>double</STRONG> =
+rather=20
+than <STRONG>float</STRONG> to increase precision.</FONT></P>
+<P><FONT face=3DVerdana size=3D2><STRONG>Sample Runs: =
+</STRONG></FONT></P>
+<BLOCKQUOTE>
+  <P><FONT face=3D"Courier New" color=3D#ff0000 size=3D2>Enter amount:=20
+  $0.25<BR><BR>Dollars: 0<BR>Quarters: 1<BR>Dimes: 0<BR>Nickels: =
+0<BR>Pennies:=20
+  0<BR><BR>Enter amount: $1.00<BR><BR>Dollars: 1<BR>Quarters: =
+0<BR>Dimes:=20
+  0<BR>Nickels: 0<BR>Pennies: 0<BR><BR>Enter amount: =
+$1.57<BR><BR>Dollars:=20
+  1<BR>Quarters: 2<BR>Dimes: 0<BR>Nickels: 1<BR>Pennies: 2<BR><BR>Enter =
+amount:=20
+  $25.22<BR><BR>Dollars: 25<BR>Quarters: 0<BR>Dimes: 2<BR>Nickels: =
+0<BR>Pennies:=20
+  2<BR><BR>Enter amount: $0.99<BR><BR>Dollars: 0<BR>Quarters: =
+3<BR>Dimes:=20
+  2<BR>Nickels: 0<BR>Pennies: 4<BR><BR>Enter amount: =
+$0.04<BR><BR>Dollars:=20
+  0<BR>Quarters: 0<BR>Dimes: 0<BR>Nickels: 0<BR>Pennies: 4<BR><BR>Enter =
+amount:=20
+  $0.00<BR><BR>Dollars: 0<BR>Quarters: 0<BR>Dimes: 0<BR>Nickels: =
+0<BR>Pennies:=20
+  0<BR><BR>Enter amount: $2.09<BR><BR>Dollars: 2<BR>Quarters: =
+0<BR>Dimes:=20
+  0<BR>Nickels: 1<BR>Pennies: 4<BR><BR>Enter amount: =
+$0.05<BR><BR>Dollars:=20
+  0<BR>Quarters: 0<BR>Dimes: 0<BR>Nickels: 1<BR>Pennies: 0<BR><BR>Enter =
+amount:=20
+  $4.33<BR><BR>Dollars: 4<BR>Quarters: 1<BR>Dimes: 0<BR>Nickels: =
+1<BR>Pennies:=20
+  3</FONT></P>
+  <P><FONT face=3D"Courier New" color=3D#ff0000=20
+size=3D2><BR></FONT></P></BLOCKQUOTE></BODY></HTML>
